@@ -17,7 +17,6 @@ public class TestCases {
     ConfigLoaderJson config = ConfigUtilJson.readConfig("src/main/resources/params.json");
     static int port = Integer.parseInt(ConfigurationReaderProperties.get("wireMock_port"));
     static String baseUriPath= ConfigurationReaderProperties.get("base_uri");
-    static String createUser= ConfigurationReaderProperties.get("createUser_path");
 
     public TestCases() throws IOException {
     }
@@ -28,8 +27,6 @@ public class TestCases {
         mockServer.startServer();
         Reports.setupReports();
     }
-
-
 
     @Test(priority = 0)
     public void createUserTest() throws Exception {
@@ -47,6 +44,7 @@ public class TestCases {
             report.fail("Request failed: " + e.getMessage());
         }
     }
+
     @Test
     public void getUserTest() throws Exception {
         ExtentTest report = Reports.createTest("Getting user test", "The test getting user");
@@ -66,6 +64,7 @@ public class TestCases {
             report.fail("Request failed: " + e.getMessage());
         }
     }
+
     @Test
     public void updateUserTest() throws Exception {
         ExtentTest report = Reports.createTest("Update user test", "The test updated user");
@@ -82,6 +81,7 @@ public class TestCases {
             report.fail("Request failed: " + e.getMessage());
         }
     }
+
     @Test
     public void deleteUserTest() throws Exception {
         ExtentTest report = Reports.createTest("Delete user test", "The test deleted user");
@@ -122,4 +122,3 @@ public class TestCases {
         Reports.flushReports();
     }
 }
-

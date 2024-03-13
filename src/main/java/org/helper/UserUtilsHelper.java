@@ -31,7 +31,6 @@ public class UserUtilsHelper {
             return EntityUtils.toString(response.getEntity());
         }
     }
-
     public static String getUser(String serverUrl) throws Exception {
         try (CloseableHttpClient httpClient = HttpClients.createDefault()) {
             HttpGet request = new HttpGet(serverUrl);
